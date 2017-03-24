@@ -50,7 +50,7 @@ def hstore_contains_key_value(hstore_attr, key_value, feature, parent):
 
 
 """
-5. Does hstore_attr contain hstore_string?
+4. Does hstore_attr contain hstore_string?
 	Returns True or False
 	Usage: 
 	hstore_contains_hstore('other_tags', '"tourism"=>"information","information"=>"guidepost"')
