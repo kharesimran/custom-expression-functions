@@ -3,23 +3,26 @@ Custom Python expression functions for QGIS
 
 ### hstore_functions_regex.py
 
-1. **hstore_get_value(hstore_attr, key)**  
-    *Example usage:* `hstore_get_value('other_tags', 'tourism')`
+Searches for the input key, key-value pair, or hstore in the hstore attribute using regular expressions.
 
-1. **hstore_exist(hstore_attr, key)**  
-    *Example usage:* `hstore_exist('other_tags', 'tourism')`
+1. **hstore_get_value1(hstore_attr, key)**  
+    *Example usage:* `hstore_get_value1('other_tags', 'tourism')`
 
-1. **hstore_contains_key_value(hstore_attr, key_value)**  
+1. **hstore_exist1(hstore_attr, key)**  
+    *Example usage:* `hstore_exist1('other_tags', 'tourism')`
+
+1. **hstore_contains_key_value1(hstore_attr, key_value)**  
      Please enclose the key and value in double quotes  
-    *Example usage:* `hstore_contains_key_value('other_tags', '"tourism"=>"information"')`
+    *Example usage:* `hstore_contains_key_value1('other_tags', '"tourism"=>"information"')`
 
-1. **hstore_contains_hstore(hstore_attr, hstore_input_string)**  
+1. **hstore_contains_hstore1(hstore_attr, hstore_input_string)**  
      Please enclose the key and value in double quotes  
-    *Example usage:* `hstore_contains_hstore('other_tags', '"tourism"=>"information","information"=>"guidepost"')`
+    *Example usage:* `hstore_contains_hstore1('other_tags', '"tourism"=>"information","information"=>"guidepost"')`
 
 
 ### hstore_functions.py
 
+Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. It then searches the dict for the input key, key-value pair or hstore.
 The file `hstore_functions.py` comprises the following expression functions:
 
 1. **hstore_get_value(hstore_attr, key)**
