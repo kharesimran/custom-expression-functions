@@ -1,6 +1,23 @@
 # custom-expression-functions
 Custom Python expression functions for QGIS
 
+### hstore_functions_regex.py
+
+1. **hstore_get_value(hstore_attr, key)**  
+    *Example usage:* `hstore_get_value('other_tags', 'tourism')`
+
+1. **hstore_exist(hstore_attr, key)**  
+    *Example usage:* `hstore_exist('other_tags', 'tourism')`
+
+1. **hstore_contains_key_value(hstore_attr, key_value)**  
+     Please enclose the key and value in double quotes  
+    *Example usage:* `hstore_contains_key_value('other_tags', '"tourism"=>"information"')`
+
+1. **hstore_contains_hstore(hstore_attr, hstore_input_string)**  
+     Please enclose the key and value in double quotes  
+    *Example usage:* `hstore_contains_hstore('other_tags', '"tourism"=>"information","information"=>"guidepost"')`
+
+
 ### hstore_functions.py
 
 The file `hstore_functions.py` comprises the following expression functions:
