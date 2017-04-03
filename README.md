@@ -1,10 +1,10 @@
 # custom-expression-functions
-Custom Python expression functions for QGIS
+Custom Python expression functions for QGIS.
 
 ### maxofallvaluesplusone.py
 
 1. **maxofallvaluesplusone('fieldName')**
-Given the name of the field (fieldName), returns 1 + the maximum value for the field. Can be used to automatically generate primary keys (eg. fids) when adding features in QGIS. Paste the following expression in the `Default value` box in the Edit Widget Properties dialog. 
+Given the name of the field (fieldName), returns 1 + the maximum value for the field. Can be used to automatically generate primary keys (eg. id, fid) when adding features in QGIS. Paste the following expression in the `Default value` box in the Edit Widget Properties dialog. 
 
 *Example usage:* `maxofallvaluesplusone('fid')`
 
@@ -12,8 +12,7 @@ To avoid the user from editing the automatically generated id, uncheck the `Edit
 
 ### hstore_functions.py
 
-Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. It then searches the dict for the input key, key-value pair or hstore.
-The file `hstore_functions.py` comprises the following expression functions:
+Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"]. This is then parsed into a Python dict for the input key, key-value pair or hstore. The file `hstore_functions.py` comprises the following expression functions:
 
 1. **hstore_get_value(hstore_attr, key)**
 
