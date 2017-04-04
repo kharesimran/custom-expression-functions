@@ -12,7 +12,9 @@ To avoid the user from editing the automatically generated id, uncheck the `Edit
 
 ### hstore_functions.py
 
-Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"]. This is then parsed into a Python dict for the input key, key-value pair or hstore. The file `hstore_functions.py` comprises the following expression functions:
+Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"] or 'name=>elcom,website=>http://www.elcom-ag.ch,addr:housenumber=>48']. The program can handle both inputs, with or without spaces between the key-value pairs. 
+
+This is then parsed into a Python dict for the input key, key-value pair or hstore. The file `hstore_functions.py` comprises the following expression functions:
 
 1. **hstore_get_value(hstore_attr, key)**
 
