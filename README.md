@@ -12,7 +12,7 @@ To avoid the user from editing the automatically generated id, uncheck the `Edit
 
 ### hstore_functions.py
 
-Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"] or 'name=>elcom,website=>http://www.elcom-ag.ch,addr:housenumber=>48']. The program can handle both inputs, with or without spaces between the key-value pairs. 
+Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"] or ['name=>elcom,website=http://www.elcom-ag.ch,addr:housenumber=>48']. The program can handle both inputs, with or without spaces between the key-value pairs. 
 
 This is then parsed into a Python dict for the input key, key-value pair or hstore. The file `hstore_functions.py` comprises the following expression functions:
 
@@ -60,7 +60,7 @@ The code also contains the function **hstore_to_dict()** which accepts an hstore
 
 ### hstore_functions_regex.py
 
-Searches for the input key, key-value pair, or hstore in the hstore attribute using regular expressions.
+Searches for the input key, key-value pair, or hstore in the hstore attribute using regular expressions. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"]
 
 1. **hstore_get_value1(hstore_attr, key)**  
     *Example usage:* `hstore_get_value1('other_tags', 'tourism')`
