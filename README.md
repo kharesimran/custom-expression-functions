@@ -3,7 +3,8 @@ Custom Python expression functions for QGIS.
 
 ### maxofallvaluesplusone.py
 
-1. **maxofallvaluesplusone('fieldName')**
+1. **maxofallvaluesplusone('fieldName')**  
+
 Given the name of the field (fieldName), returns 1 + the maximum value for the field. Can be used to automatically generate primary keys (eg. id, fid) when adding features in QGIS. Paste the following expression in the `Default value` box in the Edit Widget Properties dialog. 
 
 *Example usage:* `maxofallvaluesplusone('fid')`
@@ -12,9 +13,13 @@ To avoid the user from editing the automatically generated id, uncheck the `Edit
 
 ### hstore_functions.py
 
-Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"] or ['name=>elcom,website=http://www.elcom-ag.ch,addr:housenumber=>48']. The program can handle both inputs, with or without spaces between the key-value pairs. 
+Converts the hstore attribute to a Python dictionary with the tags as keys and tag values as values.  
+Expects a string value which contains key/values like this:  
+`'"name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"'` or 
+`'name=>elcom,website=http://www.elcom-ag.ch,addr:housenumber=>48'`  
+This is then parsed into a Python dict for the input key, key-value pair or hstore. The program can handle both inputs, with or without spaces between the key-value pairs.
 
-This is then parsed into a Python dict for the input key, key-value pair or hstore. The file `hstore_functions.py` comprises the following expression functions:
+The file `hstore_functions.py` comprises the following expression functions:
 
 1. **hstore_get_value(hstore_attr, key)**
 
@@ -56,25 +61,6 @@ This is then parsed into a Python dict for the input key, key-value pair or hsto
     Upon executing the above query in the expression engine, all features which contain both key value pairs `tourism=>information` and `information=>guidepost` in their hstore will be selected. The function also accepts and returns the correct result for input hstore strings that have spaces or double quotes surrounding the keys and values.
     
 The code also contains the function **hstore_to_dict()** which accepts an hstore string and returns a Python dictionary. This function is called by 1, 2, 3 and 4 above.
-
-
-### hstore_functions_regex.py
-
-Searches for the input key, key-value pair, or hstore in the hstore attribute using regular expressions. Expects a string value which contains key/values like this ["name"=>"elcom", "website"=>"http://www.elcom-ag.ch", "addr:housenumber"=>"48"]
-
-1. **hstore_get_value1(hstore_attr, key)**  
-    *Example usage:* `hstore_get_value1('other_tags', 'tourism')`
-
-1. **hstore_exist1(hstore_attr, key)**  
-    *Example usage:* `hstore_exist1('other_tags', 'tourism')`
-
-1. **hstore_contains_key_value1(hstore_attr, key_value)**  
-     Please enclose the key and value in double quotes  
-    *Example usage:* `hstore_contains_key_value1('other_tags', '"tourism"=>"information"')`
-
-1. **hstore_contains_hstore1(hstore_attr, hstore_input_string)**  
-     Please enclose the key and value in double quotes  
-    *Example usage:* `hstore_contains_hstore1('other_tags', '"tourism"=>"information","information"=>"guidepost"')`
     
     
 
