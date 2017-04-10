@@ -1,13 +1,13 @@
 # custom-expression-functions
 Custom Python expression functions for QGIS.
 
-### maxofallvaluesplusone.py
+### max_incremented.py
 
-1. **maxofallvaluesplusone('fieldName')**  
+1. **max_incremented('fieldName')**  
 
 Given the name of the field (fieldName), returns 1 + the maximum value for the field. Can be used to automatically generate primary keys (eg. id, fid) when adding features in QGIS. Paste the following expression in the `Default value` box in the Edit Widget Properties dialog. 
 
-*Example usage:* `maxofallvaluesplusone('fid')`
+*Example usage:* `max_incremented('fid')`
 
 To avoid the user from editing the automatically generated id, uncheck the `Editable` checkbox in the Edit Widget Properties dialog.   
 
